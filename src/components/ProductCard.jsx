@@ -8,11 +8,13 @@ const ProductCard = ({products}) => {
     const {currency} = React.useContext(CurrencyContext)
     const [price, setPrice] = React.useState(products.price)
 
+    const USD_VALUE = 27.5, EURO_VALUE = 32.7;
+
     const convertTo = (currencyToConvert) => {
         if(currencyToConvert === 'usd') {
-            return (products.price/27.5).toFixed(2)
+            return (products.price/USD_VALUE).toFixed(2)
         } else if (currencyToConvert === 'euro') {
-            return (products.price/32.7).toFixed(2)
+            return (products.price/EURO_VALUE).toFixed(2)
         }
     }
 
@@ -21,8 +23,6 @@ const ProductCard = ({products}) => {
         (currency === 'uah') ? setPrice(products.price) : (currency === 'usd') ? setPrice( convertTo('usd')) : setPrice( convertTo('euro'))
        )
     }, [currency])
-
-    
 
     return (
         <ProdCard >

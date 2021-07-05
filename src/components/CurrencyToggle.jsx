@@ -1,12 +1,11 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import EuroSymbolIcon from '@material-ui/icons/EuroSymbol';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import { CurrencyContext } from './CurrencyContext';
 import { CurrencyToggleButton } from './style';
 
-const CurrencyToggle = (props) => {
+const CurrencyToggle = () => {
     const [newCurrency, setNewCurrency] = React.useState('uah');
     const {currencyChangeHandler, currency} = React.useContext(CurrencyContext)
 
@@ -39,10 +38,6 @@ const CurrencyToggle = (props) => {
             </ToggleButtonGroup>
         </>
     );
-}
-
-CurrencyToggle.propTypes = {
-
 }
 
 export default CurrencyToggle

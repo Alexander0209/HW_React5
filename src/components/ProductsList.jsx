@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import ProductCard from './ProductCard'
 import { ProdList } from './style'
 
@@ -12,7 +11,7 @@ const products = [
     {id: 6, name: 'Strawberry', img: '6.jpg', description: 'Some description of Strawberry', price: 60 },
 ]
 
-const ProductsList = (props) => {
+const ProductsList = () => {
     return (
         <div>
             <ProdList> {
@@ -25,10 +24,6 @@ const ProductsList = (props) => {
             </ProdList>
         </div>
     )
-}
-
-ProductsList.propTypes = {
-
 }
 
 export default ProductsList
