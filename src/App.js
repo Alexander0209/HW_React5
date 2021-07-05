@@ -1,24 +1,26 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import ProductsList from './components/ProductsList';
+import { CurrencyContext } from './components/CurrencyContext'
+import CurrencyToggle from './components/CurrencyToggle';
 
 function App() {
+  const [currency, setCurrency] = React.useState('uah');
+
+  const currencyChangeHandler = (currency) => {
+    setCurrency(currency);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CurrencyContext.Provider value={{
+      currencyChangeHandler,
+      currency
+    }}>
+      <div className="App">
+        <CurrencyToggle />
+        <ProductsList />
+      </div>
+    </CurrencyContext.Provider> 
   );
 }
 
